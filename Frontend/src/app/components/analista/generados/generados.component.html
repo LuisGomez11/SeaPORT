@@ -1,0 +1,54 @@
+<app-nav-analista></app-nav-analista>
+<div class="container-fluid my-3">
+<div class="contenedor p-3 animated zoomIn">
+ 
+    <h3>Servicios generados</h3>
+    <hr>
+    <div class="row">
+        <div class="col-lg-4 col-sm-6 my-2" id="carAsi">
+                <div class="card border-primary">
+                    <div class="card-header text-center">
+                        <div class="row">
+                            <div class="w-100">
+                                <label class="titulo float-left ml-3" style="">C4214 // 2144 - 4366</label>
+                                <button style="" class="btn btn-danger float-right mr-1"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </div>
+    
+                        <div class="d-flex justify-content-end">
+    
+                        </div>
+                    </div>
+                    <div *ngFor ="let generated of serviceService.ServicesGenerated" class="card-body" id="bodyCard">
+                        <strong class="mr-2">Terminal: </strong><label>{{ generated.terminal}}</label><br>
+                        <strong class="mr-2">Id motonave: </strong><label>3</label><br>
+                        <strong class="mr-2">Muelle: </strong><label>RORO</label><br>
+                        <strong class="mr-2">Id grua: </strong><label>1</label><br>
+                        <strong class="mr-2">Fecha de cita: </strong><label>12/08/2019</label><br>
+                        <strong class="mr-2">Hora de cita: </strong><label>12:00</label><br>
+                        <strong class="mr-2">Hrs. en operacion: </strong><label>2</label><br>
+                        <strong class="mr-2">Fecha final: </strong><label>12/08/2019</label><br>
+                        <strong class="mr-2">Hora final: </strong><label>14:00</label><br>
+                        <strong class="mr-2">Id servicio: </strong><label>1</label>
+                    </div>
+                    <div class="card-footer">
+                        <div class="text-center">
+                            <button class="btn btn-primary btn-block">ASIGNAR</button>
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <button class="btn btn-success btn-block">VER</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-warning btn-block">MODIFICAR</button>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+	</div>
+</div>
+</div>

@@ -1,0 +1,112 @@
+<app-nav-analista></app-nav-analista>
+<div class="container-fluid my-3">
+<div class="contenedor p-3 animated zoomIn">
+ 
+    <h3>Generar servicio</h3>
+    <hr>
+    <div class="card">
+        <div class="card-header">Ingrese los datos del servicio generico</div>
+ 
+        <form method="POST" autocomplete="off">
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="term">Terminal</label>
+                        <select class="form-control" name="term">
+                            <option>SPRC</option>
+                            <option>CTC</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label for="moto">Motonave / Frente de servicio</label>
+                        <select class="form-control" name="moto">
+                            <option>BARCAZA</option>
+                            <option>TERRESTRE</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="lloyd">Lloyd-Escala</label>
+                        <input type="text" maxlength="5" class="form-control" id="lloyd" name="lloyd" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="uvi">UVI</label>
+                        <input type="text" maxlength="4" class="form-control" id="uvi" name="uvi" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="referencia">Referencia</label>
+                        <input type="text" maxlength="4" class="form-control" id="referencia" name="referencia"
+                            required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="muelle">Muelle</label>
+                        <select class="form-control" name="muelle">
+                            <option>N/A</option>
+                            <option>M1</option>
+                            <option>M2</option>
+                            <option>M3</option>
+                            <option>M4</option>
+                            <option>M5</option>
+                            <option>M6</option>
+                            <option>M7</option>
+                            <option>M8</option>
+                            <option>M9</option>
+                            <option>S1</option>
+                            <option>S2</option>
+                            <option>S3</option>
+                            <option>S4</option>
+                            <option>S5</option>
+                            <option>S6</option>
+                            <option>S7</option>
+                            <option>S8</option>
+                            <option>S9</option>
+                            <option>RORO</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="grua">Grúa</label>
+                        <select class="form-control" name="grua">
+                            <option>G1</option>
+                            <option>G2</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="fechaCita">Fecha de citación</label>
+                        <input type="date" class="form-control" name="fechaCita" id="fechaInicio" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="horaCita">Hora de citación</label>
+                        <input type="time" class="form-control" name="horaCita" id="horaInicio" required>
+                    </div>
+ 
+                    <div class="form-group col-md-4">
+                        <label for="horasOp">Hrs. Operación</label>
+                        <input type="number" id="hrsOp" class="form-control" name="horasOp" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="fechaCita">Fecha de finalización</label>
+                        <input type="date" class="form-control" name="fechaFinal" id="fechaFinal" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="horaCita">Hora de finalización</label>
+                        <input type="time" class="form-control" name="horaFinal" id="horaFinal" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="servicio">Servicio</label>
+                        <select class="form-control" name="servicio">
+                            <option>CAPATAZ</option>
+                            <option>OPERADOR RD</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="">
+                    <button type="button" class="btn btn-danger mr-2">CANCELAR</button>
+                    <input type="submit" value="GENERAR" class="btn btn-success" id="guardar">
+                </div>
+            </div>
+        </form>
+ 
+    </div>
+</div>
+</div>
