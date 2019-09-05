@@ -19,9 +19,8 @@ import { EstadisticasComponent } from './components/analista/estadisticas/estadi
 import { ConsultaComponent } from './components/analista/consulta/consulta.component';
 import { RegistrarComponent } from './components/seleccionador/registrar/registrar.component';
 import { ConsultarComponent } from './components/seleccionador/consultar/consultar.component';
+import { NavAnalistaComponent } from "./components/analista/nav-analista/nav-analista.component";
 import { NavSeleccionadorComponent } from './components/seleccionador/nav-seleccionador/nav-seleccionador.component';
-import { NavAnalistaComponent } from './components/analista/nav-analista/nav-analista.component';
-
 
 @NgModule({
   declarations: [
