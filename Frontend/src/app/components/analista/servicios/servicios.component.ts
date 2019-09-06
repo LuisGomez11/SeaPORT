@@ -9,15 +9,19 @@ import {Servicio} from '../../../Models/Servicios'
 })
 export class ServiciosComponent implements OnInit {
 
-  constructor(private serviceService: ServiceService) { }
+  servicio: Servicio = new Servicio();
+  listaServicios: Servicio[];
+
+  constructor(private service: ServiceService) { }
 
   ngOnInit() {
-    this.getGenerado();
+    this.servicio = new Servicio();
+    this.getServicios();
   }
-  getGenerado() {
-    this.serviceService.getServices()
-    .subscribe(res =>{
-      this.serviceService.servicios = res as Servicio[];
-    })
+
+
+  getServicios() {
+    this.service.getServicios()
+    .subscribe(data => (this.listaServicios = data));
   }
 }
