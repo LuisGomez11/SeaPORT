@@ -8,7 +8,7 @@
 		<div class="col-md-5">
 			<div class="card">
 				<div class="card-header"><h5>Información del servicio</h5></div>
-				<form autocomplete="off">
+				<form #servicioForm = "ngForm" (ngSubmit) ="addservicio(servicioForm)"autocomplete="off">
 				<div class="card-body">
 					<div class="form-group">
                         <label for="nombre">Nombre:</label>
@@ -37,35 +37,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                           <!-- ngForm ="let servicio of serviceService.servicios"-->
+                                            <tr >
                                                 <th scope="row" class="text-center">1</th>
-                                                <td class="text-center">CAPATAZ</td>
-                                                <td class="text-center">
-                                                    <button class="btn btn-info mr-2" data-toggle="modal"
-                                                        data-target="#exampleModal">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                    </button>
-                                                    <button class="btn btn-danger">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" class="text-center">2</th>
-                                                <td class="text-center">OPERADOR RD</td>
-                                                <td class="text-center">
-                                                    <button class="btn btn-info mr-2" data-toggle="modal"
-                                                        data-target="#exampleModal">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                    </button>
-                                                    <button class="btn btn-danger">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-											<tr>
-                                                <th scope="row" class="text-center">3</th>
-                                                <td class="text-center">CONDUCTOR</td>
+                                                <td class="text-center">2</td>
                                                 <td class="text-center">
                                                     <button class="btn btn-info mr-2" data-toggle="modal"
                                                         data-target="#exampleModal">

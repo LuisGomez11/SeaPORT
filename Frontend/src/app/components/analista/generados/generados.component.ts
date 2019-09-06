@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-generados',
   templateUrl: './generados.component.html',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeneradosComponent implements OnInit {
 
-  constructor(){ }
+  constructor() { }
 
   ngOnInit() {
     
   }
-
+  
 }

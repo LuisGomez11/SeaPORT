@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ServiceService} from '../../../Services/service.service'
+import {Servicio} from '../../../Models/Servicios'
 
 @Component({
   selector: 'app-servicios',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServiciosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serviceService: ServiceService) { }
 
   ngOnInit() {
+    this.getGenerado();
   }
-
+  getGenerado() {
+    this.serviceService.getServices()
+    .subscribe(res =>{
+      this.serviceService.servicios = res as Servicio[];
+    })
+  }
 }
