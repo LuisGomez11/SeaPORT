@@ -1,5 +1,5 @@
 # SeaPORT
-Frontend (Angular y Bootstrap) - Backend (Spring)
+Frontend (Angular y Bootstrap) - Backend (Spring)  
 Restfull java and angular
 
 Proyecto de aula VI Semestre - Desarrollo de Software
