@@ -12,7 +12,7 @@ export class ServiceService {
   selectedServicio: Servicio;
   servicios: Servicio[];
 
-  readonly url='http://localhost:8080/api/servicio';
+  readonly url='http://localhost:8090/api/servicio';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   
   constructor( private http: HttpClient ) {

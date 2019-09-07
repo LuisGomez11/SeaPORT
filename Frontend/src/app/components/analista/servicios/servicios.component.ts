@@ -32,11 +32,6 @@ export class ServiciosComponent implements OnInit {
       id: [],
       nombre: ['', Validators.required]
     });
-
-    this.service.getServicio(+ServicioId)
-      .subscribe(data => {
-        this.editForm.setValue(data);
-      });
   }
 
 
