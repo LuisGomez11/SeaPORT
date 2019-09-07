@@ -10,12 +10,16 @@ export class ServiceService {
   selectedServicio: Servicio;
   servicios: Servicio[];
 
-  readonly URL_API='localhost:8080/api/services';
+  readonly URL_API='http://localhost:8080/api';
   
   constructor(private http: HttpClient){
     this.selectedServicio = new Servicio();
   }
   getServices(){
-    return this.http.get(this.URL_API);
+    return this.http.get(this.URL_API + '/services');
+  };
+
+  postService(Servicio: Servicio){
+    return this.http.post(this.URL_API,Servicio);
   }
 }

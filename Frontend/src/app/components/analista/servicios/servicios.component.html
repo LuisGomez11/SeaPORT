@@ -8,11 +8,12 @@
 		<div class="col-md-5">
 			<div class="card">
 				<div class="card-header"><h5>Información del servicio</h5></div>
-				<form #servicioForm = "ngForm" (ngSubmit) ="addservicio(servicioForm)"autocomplete="off">
+				<form #servicioForm = "ngForm" (ngSubmit) ="postServicio(servicioForm)"autocomplete="off">
 				<div class="card-body">
 					<div class="form-group">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <input #name="ngModel"[(ngModel)]="serviceService.selectedServicio.name" placeholder="enter a new service" 
+                        type="text" class="form-control" id="nombre" name="nombre" required>
                     </div>	
 				</div>
 				<div class="card-footer">
@@ -37,10 +38,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                           <!-- ngForm ="let servicio of serviceService.servicios"-->
-                                            <tr >
-                                                <th scope="row" class="text-center">1</th>
-                                                <td class="text-center">2</td>
+                                            
+                                            <tr *ngFor ="let servicios of serviceService.servicios">
+                                                <th scope="row" class="text-center">{{servicios.idServices}}</th>
+                                                <td class="text-center">{{servicios.name}}</td>
                                                 <td class="text-center">
                                                     <button class="btn btn-info mr-2" data-toggle="modal"
                                                         data-target="#exampleModal">
