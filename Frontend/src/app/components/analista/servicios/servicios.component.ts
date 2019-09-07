@@ -17,7 +17,7 @@ export class ServiciosComponent implements OnInit {
   public formServicio: FormGroup;
   editForm: FormGroup;
 
-  constructor(private service: ServiceService, private formBuilder:FormBuilder, private router: Router) { }
+  constructor(private service: ServiceService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.formServicio = this.formBuilder.group({
@@ -25,19 +25,14 @@ export class ServiciosComponent implements OnInit {
     });
     this.servicio = new Servicio();
     this.getServicios();
-
-    const ServicioId = localStorage.getItem('editServicioId');
-
-    this.editForm = this.formBuilder.group({
-      id: [],
-      nombre: ['', Validators.required]
-    });
   }
 
 
   getServicios() {
     this.service.getServicios()
-    .subscribe(data => (this.listaServicios = data));
+      .subscribe(data =>
+        this.listaServicios = data
+      );
   }
 
   addServicio() {
@@ -50,9 +45,18 @@ export class ServiciosComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       });
+      this.getServicios();
+      this.formServicio.reset();
+    },error => {
+      swal.fire({
+        position: 'center',
+        type: 'error',
+        title: "Error!",
+        text: "Error al registrar el servicio",
+        showConfirmButton: false,
+        timer: 2000
+      });
     });
-    this.getServicios();
-    this.ngOnInit();
   }
 
   editServicio(servicio: Servicio) {
@@ -61,9 +65,10 @@ export class ServiciosComponent implements OnInit {
     this.router.navigate(['analista/servicios/edit']);
   }
 
-  deleteServicio(servicio: Servicio) {
-    swal.fire({
-      title: 'Confirmación?',
+  async deleteServicio(servicio: Servicio) {
+
+    let result = await swal.fire({
+      title: 'Confirmación',
       text: `¿Seguro que desea eliminar el servicio: ${servicio.nombre}?`,
       type: 'warning',
       showCancelButton: true,
@@ -71,14 +76,14 @@ export class ServiciosComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Si, eliminar!',
       cancelButtonText: 'Cancelar'
-    }).then(result => {
-      if (result.value) {
-        this.service.deleteServicio(servicio.id).subscribe(data => {
-          this.listaServicios = this.listaServicios.filter(s => s !== servicio);
-        });
+    })
 
-        swal.fire('Eliminado!', 'Se ha eliminado el servicio.', 'success');
-      }
-    });
+    if (result.value) {
+      this.service.deleteServicio(servicio.id).subscribe(data => {
+        this.listaServicios = this.listaServicios.filter(s => s !== servicio);
+      });
+      swal.fire('Eliminado!', 'Se ha eliminado el servicio.', 'success');
+    }
+
   }
 }

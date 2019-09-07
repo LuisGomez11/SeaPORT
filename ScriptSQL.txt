@@ -1,6 +1,6 @@
 CREATE DATABASE seaportdb;
 
-USE seaportdb TIME_ZONE="+3:00";
+SET GLOBAL TIME_ZONE="+3:00";
 
 USE seaportdb;
 
