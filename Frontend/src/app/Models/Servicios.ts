@@ -1,11 +1,11 @@
 export class Servicio{
 
-	constructor(id = '', nombre = ''){
+	constructor(id = 0, nombre = ''){
 		this.id = id;
         this.nombre = nombre;
 	}
 	
-	id:String;
+	id:number;
 	nombre:String;
 	
 

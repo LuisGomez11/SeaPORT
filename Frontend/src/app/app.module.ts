@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule}from '@angular/forms';
+import {FormsModule, ReactiveFormsModule}from '@angular/forms';
 
 // IMPORTACION DEL MODULO DE RUTAS
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +21,7 @@ import { RegistrarComponent } from './components/seleccionador/registrar/registr
 import { ConsultarComponent } from './components/seleccionador/consultar/consultar.component';
 import { NavAnalistaComponent } from "./components/analista/nav-analista/nav-analista.component";
 import { NavSeleccionadorComponent } from './components/seleccionador/nav-seleccionador/nav-seleccionador.component';
+import { EditComponent } from './components/analista/servicios/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +38,15 @@ import { NavSeleccionadorComponent } from './components/seleccionador/nav-selecc
     RegistrarComponent,
     ConsultarComponent,
     NavSeleccionadorComponent,
-    NavAnalistaComponent
+    NavAnalistaComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

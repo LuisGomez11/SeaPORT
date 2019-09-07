@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.api.Backend;
 
 import java.util.List;
@@ -19,10 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- *
- * @author Jhon Baron
- */
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api")
@@ -34,6 +26,32 @@ public class ServiciosControlador {
     @GetMapping("/servicio")
     public List<Servicio> getServicios() {
         return service.getServicios();
+    }
+    
+    @GetMapping("/servicio/{servicioId}")
+    public Servicio getCustomer(@PathVariable int servicioId) {
+        Servicio s = service.getServicio(servicioId);
+        return s;
+    }
+    
+    @PostMapping("/servicio")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Servicio save(@RequestBody Servicio s) {
+        s.setId(0);
+        service.save(s);
+        return s;
+    }
+    
+    @PutMapping("/servicio")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Servicio update(@RequestBody Servicio s){
+        service.save(s);
+        return s;
+    }  
+    
+    @DeleteMapping("/servicio/{id}")
+    public void delete(@PathVariable int id) {
+        service.delete(id);
     }
     
 }
