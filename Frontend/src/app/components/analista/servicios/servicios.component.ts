@@ -22,11 +22,22 @@ export class ServiciosComponent implements OnInit {
       this.serviceService.servicios = res as Servicio[];
     })
   };
-
   postServicio(form: NgForm){
     this.serviceService.postService(form.value)
     .subscribe(res =>{
       console.log(res)
     })
+    this.getServicio();
+    this.resetForm(form);
+  };
+  putServicio(servicio: Servicio){
+    //this.serviceService.putService()
+    this.serviceService.selectedServicio = servicio
+  }
+  resetForm(form?: NgForm){
+    if (form) {
+      form.reset();
+      this.serviceService.selectedServicio = new Servicio();
+    }
   };
 }

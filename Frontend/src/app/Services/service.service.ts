@@ -20,6 +20,9 @@ export class ServiceService {
   };
 
   postService(Servicio: Servicio){
-    return this.http.post(this.URL_API,Servicio);
+    return this.http.post(this.URL_API + '/services/create',Servicio);
+  };
+  putService(servicio: Servicio){
+    return this.http.put(this.URL_API + `/services/update//${servicio.idServices}`, servicio)
   }
 }
