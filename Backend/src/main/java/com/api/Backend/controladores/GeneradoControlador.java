@@ -1,6 +1,8 @@
 
-package com.api.Backend;
+package com.api.Backend.controladores;
 
+import com.api.Backend.modelos.Generado;
+import com.api.Backend.servicios.GeneradoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,40 +20,28 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api")
-public class ServiciosControlador {
-
+public class GeneradoControlador {
+    
     @Autowired
-    ServicioService service;
+    GeneradoService service;
 
-    @GetMapping("/servicio")
-    public List<Servicio> getServicios() {
-        return service.getServicios();
+    @GetMapping("/generado")
+    public List<Generado> getGenerados() {
+        return service.getGenerados();
     }
     
-    @GetMapping("/servicio/{servicioId}")
-    public Servicio getCustomer(@PathVariable int servicioId) {
-        Servicio s = service.getServicio(servicioId);
-        return s;
+    @GetMapping("/generado/{generadoId}")
+    public Generado getGenerado(@PathVariable int generadoId) {
+        Generado g = service.getGenerado(generadoId);
+        return g;
     }
     
-    @PostMapping("/servicio")
+    @PostMapping("/generado")
     @ResponseStatus(HttpStatus.CREATED)
-    public Servicio save(@RequestBody Servicio s) {
-        s.setId(0);
-        service.save(s);
-        return s;
-    }
-    
-    @PutMapping("/servicio")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Servicio update(@RequestBody Servicio s){
-        service.save(s);
-        return s;
-    }  
-    
-    @DeleteMapping("/servicio/{id}")
-    public void delete(@PathVariable int id) {
-        service.delete(id);
+    public Generado save(@RequestBody Generado g) {
+        g.setId(0);
+        service.save(g);
+        return g;
     }
     
 }

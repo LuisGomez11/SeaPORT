@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ServiceService } from '../../../Services/service.service'
+import { ServicioService } from '../../../Services/Servicios/servicio.service'
 import { Servicio } from '../../../Models/Servicios'
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
@@ -17,7 +17,7 @@ export class ServiciosComponent implements OnInit {
   public formServicio: FormGroup;
   editForm: FormGroup;
 
-  constructor(private service: ServiceService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private service: ServicioService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.formServicio = this.formBuilder.group({

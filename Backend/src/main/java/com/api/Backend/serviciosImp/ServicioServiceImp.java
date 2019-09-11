@@ -1,6 +1,9 @@
 
-package com.api.Backend;
+package com.api.Backend.serviciosImp;
 
+import com.api.Backend.servicios.ServicioService;
+import com.api.Backend.repositorios.ServicioRepositorio;
+import com.api.Backend.modelos.Servicio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

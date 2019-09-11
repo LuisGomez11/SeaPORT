@@ -1,6 +1,7 @@
 
-package com.api.Backend;
+package com.api.Backend.servicios;
 
+import com.api.Backend.modelos.Servicio;
 import java.util.List;
 
 public interface ServicioService {

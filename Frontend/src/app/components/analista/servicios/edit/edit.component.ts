@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Servicio } from '../../../../Models/Servicios';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ServiceService } from '../../../../Services/service.service';
+import { ServicioService } from '../../../../Services/Servicios/servicio.service';
 import { Router } from '@angular/router';
 import {first} from 'rxjs/operators';
 import swal from 'sweetalert2';
@@ -16,7 +16,7 @@ export class EditComponent implements OnInit {
   servicio: Servicio;
   editForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private service: ServiceService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private service: ServicioService) { }
 
   ngOnInit() {
 

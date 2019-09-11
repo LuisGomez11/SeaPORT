@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Servicio } from '../Models/Servicios';
+import { Servicio } from '../../Models/Servicios';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceService {
+export class ServicioService {
 
   selectedServicio: Servicio;
   servicios: Servicio[];
 
-  readonly url='http://localhost:8090/api/servicio';
+  readonly url='http://localhost:8080/api/servicio';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   
   constructor( private http: HttpClient ) {

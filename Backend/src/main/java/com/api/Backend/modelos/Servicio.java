@@ -1,5 +1,5 @@
 
-package com.api.Backend;
+package com.api.Backend.modelos;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

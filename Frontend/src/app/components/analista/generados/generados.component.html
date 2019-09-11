@@ -1,35 +1,40 @@
 <app-nav-analista></app-nav-analista>
 <div class="container-fluid my-3">
-<div class="contenedor p-3 animated zoomIn">
- 
-    <h3>Servicios generados</h3>
-    <hr>
-    <div class="row">
-        <div class="col-lg-4 col-sm-6 my-2" id="carAsi">
+    <div class="contenedor p-3 animated zoomIn">
+
+        <div class="d-flex">
+            <h3 class="">Servicios generados</h3>
+            <button type="button" class="btn btn-success ml-auto" data-toggle="modal" data-target="#exampleModal"><i
+                    class="fas fa-plus"></i></button>
+        </div>
+        <hr>
+        <div class="row">
+            <div *ngFor="let g of listaGenerados" class="col-lg-4 col-sm-6 my-2" id="carAsi">
                 <div class="card border-primary">
                     <div class="card-header text-center">
                         <div class="row">
                             <div class="w-100">
-                                <label class="titulo float-left ml-3">C4214 // 2144 - 4366</label>
-                                <button class="btn btn-danger float-right mr-1"><i class="fas fa-trash-alt"></i></button>
+                                <label class="titulo float-left ml-3">{{g.lloyd}} // {{g.uvi}} - {{g.referencia}}</label>
+                                <button class="btn btn-danger float-right mr-1"><i
+                                        class="fas fa-trash-alt"></i></button>
                             </div>
                         </div>
-    
+
                         <div class="d-flex justify-content-end">
-    
+
                         </div>
                     </div>
                     <div class="card-body" id="bodyCard">
-                        <strong class="mr-2">Terminal: </strong><label>SPRC</label><br>
-                        <strong class="mr-2">Id motonave: </strong><label>3</label><br>
-                        <strong class="mr-2">Muelle: </strong><label>RORO</label><br>
-                        <strong class="mr-2">Id grua: </strong><label>1</label><br>
-                        <strong class="mr-2">Fecha de cita: </strong><label>12/08/2019</label><br>
-                        <strong class="mr-2">Hora de cita: </strong><label>12:00</label><br>
-                        <strong class="mr-2">Hrs. en operacion: </strong><label>2</label><br>
-                        <strong class="mr-2">Fecha final: </strong><label>12/08/2019</label><br>
-                        <strong class="mr-2">Hora final: </strong><label>14:00</label><br>
-                        <strong class="mr-2">Id servicio: </strong><label>1</label>
+                        <strong class="mr-2">Terminal: </strong><label>{{g.terminal}}</label><br>
+                        <strong class="mr-2">Id motonave: </strong><label>{{g.id_entidadM}}</label><br>
+                        <strong class="mr-2">Muelle: </strong><label>{{g.muelle}}</label><br>
+                        <strong class="mr-2">Id grua: </strong><label>{{g.id_entidadG}}</label><br>
+                        <strong class="mr-2">Fecha de cita: </strong><label>{{g.fechaCita}}</label><br>
+                        <strong class="mr-2">Hora de cita: </strong><label>{{g.horaCita}}</label><br>
+                        <strong class="mr-2">Hrs. en operacion: </strong><label>{{g.hrsOp}}</label><br>
+                        <strong class="mr-2">Fecha final: </strong><label>{{g.fechaFinal}}</label><br>
+                        <strong class="mr-2">Hora final: </strong><label>{{g.horaFinal}}</label><br>
+                        <strong class="mr-2">Id servicio: </strong><label>{{g.id_servicio}}</label>
                     </div>
                     <div class="card-footer">
                         <div class="text-center">
@@ -44,11 +49,128 @@
                                 <div class="col-md-6">
                                     <button class="btn btn-warning btn-block">MODIFICAR</button>
                                 </div>
-                            </div>    
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-	</div>
+        </div>
+    </div>
 </div>
+
+<div class="modal fade bd-example-modal-x" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ingrese los datos del servicio generico</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form [formGroup]="formGenerado" (ngSubmit)="addGenerado()" autocomplete="off">
+            <div class="modal-body">
+                
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="term">Terminal</label>
+                                <select class="form-control" formControlName="terminal">
+                                    <option>SPRC</option>
+                                    <option>CTC</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="moto">Motonave / Frente de servicio</label>
+                                <select class="form-control" formControlName="id_entidadM">
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="lloyd">Lloyd-Escala</label>
+                                <input type="text" maxlength="5" class="form-control" id="lloyd" formControlName="lloyd">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="uvi">UVI</label>
+                                <input type="text" maxlength="4" class="form-control" id="uvi" formControlName="uvi">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="referencia">Referencia</label>
+                                <input type="text" maxlength="4" class="form-control" id="referencia" formControlName="referencia">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="muelle">Muelle</label>
+                                <select class="form-control" formControlName="muelle">
+                                    <option>N/A</option>
+                                    <option>M1</option>
+                                    <option>M2</option>
+                                    <option>M3</option>
+                                    <option>M4</option>
+                                    <option>M5</option>
+                                    <option>M6</option>
+                                    <option>M7</option>
+                                    <option>M8</option>
+                                    <option>M9</option>
+                                    <option>S1</option>
+                                    <option>S2</option>
+                                    <option>S3</option>
+                                    <option>S4</option>
+                                    <option>S5</option>
+                                    <option>S6</option>
+                                    <option>S7</option>
+                                    <option>S8</option>
+                                    <option>S9</option>
+                                    <option>RORO</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="grua">Grúa</label>
+                                <select class="form-control" formControlName="id_entidadG">
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="fechaCita">Fecha de citación</label>
+                                <input type="date" class="form-control" formControlName="fechaCita">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="horaCita">Hora de citación</label>
+                                <input type="time" class="form-control" formControlName="horaCita">
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="horasOp">Hrs. Operación</label>
+                                <input type="number" class="form-control"  formControlName="hrsOp">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="fechaCita">Fecha de finalización</label>
+                                <input type="date" class="form-control" formControlName="fechaFinal">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="horaCita">Hora de finalización</label>
+                                <input type="time" class="form-control" formControlName="horaFinal">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="servicio">Servicio</label>
+                                <select class="form-control" formControlName="id_servicio">
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+            <div class="modal-footer">
+                <div class="">
+                    <button type="button" class="btn btn-danger mr-2" data-dismiss="modal">CANCELAR</button>
+                    <input type="submit" value="GENERAR" class="btn btn-success" id="guardar">
+                </div>
+
+            </div>
+        </form>
+        </div>
+    </div>
 </div>
