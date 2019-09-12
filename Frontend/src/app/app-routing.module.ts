@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { InicioComponent } from './components/analista/inicio/inicio.component';
 import { ServiciosComponent } from './components/analista/servicios/servicios.component';
 import { EntidadComponent } from './components/analista/entidad/entidad.component';
-import { GenerarComponent } from './components/analista/generar/generar.component';
 import { GeneradosComponent } from './components/analista/generados/generados.component';
 import { AsignadosComponent } from './components/analista/asignados/asignados.component';
 import { InformesComponent } from './components/analista/informes/informes.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
 	{path: 'analista/servicios', component: ServiciosComponent},
 	{path: 'analista/servicios/edit', component: EditComponent},
 	{path: 'analista/entidad', component: EntidadComponent},
-	{path: 'analista/generar', component: GenerarComponent},
 	{path: 'analista/generados', component: GeneradosComponent},
 	{path: 'analista/asignados', component: AsignadosComponent},
 	{path: 'analista/informes', component: InformesComponent},

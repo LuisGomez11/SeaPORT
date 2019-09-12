@@ -12,7 +12,7 @@ export class GeneradoService {
   selectedGenerado: Generados;
   generados: Generados[];
 
-  readonly url='http://localhost:8080/api/generado';
+  readonly url='http://localhost:8090/api/generado';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   
   constructor( private http: HttpClient ) {
@@ -25,8 +25,17 @@ export class GeneradoService {
     );
   }
 
-  createServicio(generado: Generados): Observable<Generados> {
+  createGenerado(generado: Generados): Observable<Generados> {
     return this.http.post<Generados>(this.url, generado, {headers: this.httpHeaders});
   }
+
+  updateGenerado(generado: Generados): Observable<Generados> {
+    return this.http.put<Generados>(this.url, generado, {headers: this.httpHeaders});
+  }
+
+  deleteGenerado(id: number): Observable<Generados> {
+    return this.http.delete<Generados>(`${this.url}/${id}`, {headers: this.httpHeaders});
+  }
+
 
 }

@@ -36,7 +36,7 @@ public class GeneradoServiceImp implements GeneradoService{
 
     @Override
     public void delete(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       repo.deleteById(id);
     }
     
 }

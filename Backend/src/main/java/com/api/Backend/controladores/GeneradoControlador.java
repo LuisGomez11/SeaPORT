@@ -44,4 +44,16 @@ public class GeneradoControlador {
         return g;
     }
     
+    @PutMapping("/generado")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Generado update(@RequestBody Generado g){
+        service.save(g);
+        return g;
+    }  
+    
+    @DeleteMapping("/generado/{id}")
+    public void delete(@PathVariable int id) {
+        service.delete(id);
+    }
+    
 }
