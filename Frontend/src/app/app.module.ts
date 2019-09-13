@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './components/analista/inicio/inicio.component';
 import { ServiciosComponent } from './components/analista/servicios/servicios.component';
 import { EntidadComponent } from './components/analista/entidad/entidad.component';
-import { GenerarComponent } from './components/analista/generar/generar.component';
 import { GeneradosComponent } from './components/analista/generados/generados.component';
 import { AsignadosComponent } from './components/analista/asignados/asignados.component';
 import { InformesComponent } from './components/analista/informes/informes.component';
@@ -29,7 +28,6 @@ import { EditComponent } from './components/analista/servicios/edit/edit.compone
     InicioComponent,
     ServiciosComponent,
     EntidadComponent,
-    GenerarComponent,
     GeneradosComponent,
     AsignadosComponent,
     InformesComponent,

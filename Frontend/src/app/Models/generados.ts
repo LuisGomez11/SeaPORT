@@ -1,10 +1,11 @@
 export class Generados {
-    constructor(fechaFinal = '', id_entidadM = '', id_entidadG = '', id_servicio = '', terminal = '', lloyd = '', uvi = '', referencia = '', muelle = '', fechaCita = '', horaCita = '', hrsOp = '', horaFinal = '', estado = ''){
+    constructor(fechaFinal = '', id_entidadM = 0, id_entidadG = 0, id_servicio = 0, terminal = '', lloyd = '', uvi = '', referencia = '',
+     muelle = '', fechaCita = '', horaCita = '', hrsOp = '', horaFinal = '', estado = '', id=0){
         this.estado = estado;
         this.fechaCita = fechaCita;
         this.horaCita = horaCita;
         this.fechaFinal = fechaFinal;
-        this.horaCita = horaCita;
+        this.referencia = referencia;
         this.horaFinal = horaFinal;
         this.hrsOp = hrsOp;
         this.id_entidadG = id_entidadG;
@@ -12,22 +13,23 @@ export class Generados {
         this.id_servicio = id_servicio;
         this.lloyd = lloyd;
         this.muelle = muelle;
-        this.referencia = muelle;
         this.terminal = terminal;
         this.uvi = uvi;
+        this.id = id;
     }
     terminal: string;
-    id_entidadM: string;
+    id_entidadM: number;
     lloyd: String;
     uvi: String;
     referencia: String;
     muelle: String;
-    id_entidadG: string;
+    id_entidadG: number;
     fechaCita: string;
     horaCita: String;
     hrsOp: string;
     fechaFinal: string;
     horaFinal: string;
-    id_servicio: string;
+    id_servicio: number;
     estado: string;
+    id:number;
 }

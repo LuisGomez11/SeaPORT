@@ -3,9 +3,9 @@
 	font-size: 20px;
 }
 
-#navbarNav ul li{
+/* #navbarNav ul li{
 	border-bottom: 1px solid rgba(255,255,255,.3);
-}
+} */
 
 #navbarNav ul li:hover{
 	background: rgba(255,255,255,.2);
