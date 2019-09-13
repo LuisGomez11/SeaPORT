@@ -1,7 +1,4 @@
 # SeaPORT
-Frontend (Angular y Bootstrap) - Backend (Spring)
-# SeaPORT
-
 Frontend (Angular y Bootstrap) - Backend (Spring)  
 Restfull java and angular
 

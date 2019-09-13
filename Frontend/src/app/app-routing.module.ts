@@ -12,11 +12,13 @@ import { InformesComponent } from './components/analista/informes/informes.compo
 import { EstadisticasComponent } from './components/analista/estadisticas/estadisticas.component';
 import { RegistrarComponent } from './components/seleccionador/registrar/registrar.component';
 import { ConsultarComponent } from './components/seleccionador/consultar/consultar.component';
+import { EditComponent } from './components/analista/servicios/edit/edit.component';
 
 const routes: Routes = [
 	{path: 'analista', component: InicioComponent},
 	{path: 'analista/inicio', component: InicioComponent},
 	{path: 'analista/servicios', component: ServiciosComponent},
+	{path: 'analista/servicios/edit', component: EditComponent},
 	{path: 'analista/entidad', component: EntidadComponent},
 	{path: 'analista/generar', component: GenerarComponent},
 	{path: 'analista/generados', component: GeneradosComponent},

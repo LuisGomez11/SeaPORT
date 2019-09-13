@@ -1,6 +1,7 @@
 <app-nav-analista></app-nav-analista>
 <div class="container-fluid my-3">
-<div class="contenedor p-3 animated zoomIn">
+    <div class="contenedor p-3 animated zoomIn">
+
 
 	<h3>Servicios</h3>
 	<hr>
@@ -78,17 +79,69 @@
                                     <label for="nombre">Nombre:</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre" required>
                                 </div>
+
+        <h3>Servicios</h3>
+        <hr>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Información del servicio</h5>
+                    </div>
+                    <form  [formGroup]="formServicio" (ngSubmit)="addServicio()" autocomplete="off">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" class="form-control" formControlName="nombre" name="nombre">
+
                             </div>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-danger mr-2">CANCELAR</button>
+                            <input type="submit" value="REGISTRAR" class="btn btn-success">
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Guardar cambios</button>
+            </div>
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Servicios registrados</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-center">Codigo</th>
+                                    <th scope="col" class="text-center">Nombre</th>
+                                    <th scope="col" class="text-center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let s of listaServicios">
+                                    <th scope="row" class="text-center">{{ s.id }}</th>
+                                    <td class="text-center">{{ s.nombre }}</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-info mr-2" (click)="editServicio(s)">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="btn btn-danger" (click)="deleteServicio(s)">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
     -->
 </div>
+
+        </div>
+
 </div>
