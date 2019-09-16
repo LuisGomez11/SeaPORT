@@ -10,6 +10,5 @@ import lombok.Data;
 @Data
 public class ServicesVo {
 
-	private String idServices;
 	private String name;
 }
