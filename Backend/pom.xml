@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.backend.seaport</groupId>
-	<artifactId>seaport</artifactId>
+	<artifactId>Backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>seaport</name>
+	<name>Backend</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
