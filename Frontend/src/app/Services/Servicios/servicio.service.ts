@@ -12,7 +12,7 @@ export class ServicioService {
   selectedServicio: Servicio;
   servicios: Servicio[];
 
-  readonly url='http://localhost:8090/api/servicio';
+  readonly url='http://localhost:8090/v1/api/services';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   
   constructor( private http: HttpClient ) {
@@ -30,7 +30,7 @@ export class ServicioService {
   }
 
   createServicio(servicio: Servicio): Observable<Servicio> {
-    return this.http.post<Servicio>(this.url, servicio, {headers: this.httpHeaders});
+    return this.http.post<Servicio>(this.url+'/create', servicio, {headers: this.httpHeaders});
   }
 
   updateServicio(servicio: Servicio): Observable<Servicio> {

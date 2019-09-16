@@ -12,6 +12,7 @@ import { EstadisticasComponent } from './components/analista/estadisticas/estadi
 import { RegistrarComponent } from './components/seleccionador/registrar/registrar.component';
 import { ConsultarComponent } from './components/seleccionador/consultar/consultar.component';
 import { EditComponent } from './components/analista/servicios/edit/edit.component';
+import { ErrorComponent } from './components/error/error/error.component';
 
 const routes: Routes = [
 	{path: 'analista', component: InicioComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
 	{path: 'seleccionador', component: RegistrarComponent},
 	{path: 'seleccionador/registrar', component: RegistrarComponent},
 	{path: 'seleccionador/consultar', component: ConsultarComponent},
+	{path: '**', component: ErrorComponent},
 ];
 
 @NgModule({
