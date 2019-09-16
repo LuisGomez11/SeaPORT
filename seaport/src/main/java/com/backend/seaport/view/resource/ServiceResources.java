@@ -18,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.seaport.deal.service.ServiceService;
-import com.backend.seaport.deal.service.ServicesGeneratedService;
 import com.backend.seaport.model.Services;
-import com.backend.seaport.model.ServicesGenerated;
 import com.backend.seaport.view.resource.vo.ServicesVo;
+
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 /**
  * @author christian
@@ -29,58 +31,88 @@ import com.backend.seaport.view.resource.vo.ServicesVo;
  */
 
 @RestController
-//@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
-@CrossOrigin(origins = {"http://localhost:4200"})
-@RequestMapping("/api")
+@CrossOrigin(origins = { "http://localhost:4200" })
+@RequestMapping("/v1/api")
 
 public class ServiceResources {
-	
+
 	private final ServiceService serviceService;
-	private final ServicesGeneratedService servicesGeneratedservice;
 
-	public ServiceResources(ServiceService servicesService, ServicesGeneratedService servicesGeneratedService) {
+	public ServiceResources(ServiceService servicesService) {
 		this.serviceService = servicesService;
-		this.servicesGeneratedservice = servicesGeneratedService;
 	};
-	
-	@PostMapping("/services/create")
-	public ResponseEntity<Services> POSTServices(@RequestBody ServicesVo servicesVo){
-		Services services = new Services();
-		
-		services.setName(servicesVo.getName());
-		
-		//if (services.getName().isEmpty()) {
-			//return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		//} else {
-			return new ResponseEntity<>(this.serviceService.createService(services), HttpStatus.CREATED);
-	//	}
-	};
-	
-	@PutMapping("/services/update/{id}")
-	public ResponseEntity<Services> PUTService(@PathVariable("id") String id, ServicesVo servicesVo){
-		
-		Services services = this.serviceService.findByS(id);
-		
-		if(services == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		} else {
-			services.setName(servicesVo.getName());
-		}
-		return new ResponseEntity<>(this.serviceService.updateService(services), HttpStatus.OK);
-	};
-	
-	@DeleteMapping("/services/delete/{id}")
-	public void DELETEService(@PathVariable String id) {
-		Services services = this.serviceService.findByS(id);
-		ServicesGenerated servicesGenerated = this.servicesGeneratedservice.findByIS(id);
 
-		if (services != null) {
-			this.servicesGeneratedservice.elimanateServiceGenerated(servicesGenerated);
+	@PostMapping("/services/create")
+	@ApiOperation(value = "Create service", notes = "Service to crate a new service")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "service create successfully"),
+			@ApiResponse(code = 400, message = "Invalid request") })
+	public ResponseEntity<Services> POSTServices(@RequestBody ServicesVo servicesVo) {
+		Services services = new Services();
+
+		try {
+			services.setName(servicesVo.getName());
+
+			return new ResponseEntity<>(this.serviceService.createService(services), HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	};
-	
+
+	@PutMapping("/services/update/{id}")
+	@ApiOperation(value = "update service", notes = "Service to update a service ")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "service updated successfully"),
+			@ApiResponse(code = 400, message = "Invalid request") })
+	public ResponseEntity<Services> PUTService(@PathVariable("id") String id, ServicesVo servicesVo) {
+
+		try {
+			Services services = this.serviceService.findByS(id);
+			if (services == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+			services.setName(servicesVo.getName());
+
+			return new ResponseEntity<>(this.serviceService.updateService(services), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	};
+
+	@DeleteMapping("/services/delete/{id}")
+	@ApiOperation(value = "delete service", notes = "Service to delete a service")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "service deleted successfully"),
+			@ApiResponse(code = 400, message = "Invalid request") })
+	public void DELETEService(@PathVariable String id) {
+		try {
+			Services services = this.serviceService.findByS(id);
+			if (services != null) this.serviceService.deleteService(services);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	};
+
 	@GetMapping("/services")
-	public ResponseEntity<List<Services>> GETService(){
-		return ResponseEntity.ok(this.serviceService.findAllServices());
+	@ApiOperation(value = "to list services", notes = "Service to list all services")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "services found"),
+			@ApiResponse(code = 404, message = "services generated not found") })
+	public ResponseEntity<List<Services>> GETService() {
+		try {
+			return ResponseEntity.ok(this.serviceService.findAllServices());
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	};
+
+	@GetMapping("/services/{id}")
+	@ApiOperation(value = "to find service by id", notes = "Service to find a service generated by id")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "services finded"),
+			@ApiResponse(code = 404, message = "services generated not found") })
+	public ResponseEntity<Services> GETIDservice(@PathVariable String id) {
+
+		try {
+			return ResponseEntity.ok(this.serviceService.findByS(id));
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+
 	};
 };

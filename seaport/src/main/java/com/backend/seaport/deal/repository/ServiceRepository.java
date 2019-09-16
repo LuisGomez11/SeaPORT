@@ -6,5 +6,6 @@ import com.backend.seaport.model.Services;
 
 public interface ServiceRepository extends JpaRepository<Services, String>{
 	
-	public Services findByIdServices(String idServices);
+	public Services findByIdServices(String idService);
+	
 }
