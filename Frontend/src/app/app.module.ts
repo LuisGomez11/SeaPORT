@@ -21,6 +21,7 @@ import { ConsultarComponent } from './components/seleccionador/consultar/consult
 import { NavAnalistaComponent } from "./components/analista/nav-analista/nav-analista.component";
 import { NavSeleccionadorComponent } from './components/seleccionador/nav-seleccionador/nav-seleccionador.component';
 import { EditComponent } from './components/analista/servicios/edit/edit.component';
+import { ErrorComponent } from './components/error/error/error.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { EditComponent } from './components/analista/servicios/edit/edit.compone
     ConsultarComponent,
     NavSeleccionadorComponent,
     NavAnalistaComponent,
-    EditComponent
+    EditComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
