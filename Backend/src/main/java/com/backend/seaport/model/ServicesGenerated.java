@@ -24,7 +24,6 @@ import lombok.Data;
 @NamedQuery(name = "ServicesGenerated.findByIdServices", query = "Select c from ServicesGenerated c where c.idService = ?1")
 public class ServicesGenerated {
 
-	
 	@Column(name = "id_entidadG")
 	private String idEntityG;
 	@Column(name = "id_entidadM")

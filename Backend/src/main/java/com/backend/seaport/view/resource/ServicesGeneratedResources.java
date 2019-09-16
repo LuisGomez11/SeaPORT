@@ -22,6 +22,7 @@ import com.backend.seaport.deal.service.ServicesGeneratedService;
 import com.backend.seaport.model.ServicesGenerated;
 import com.backend.seaport.view.resource.vo.ServicesGeneratedVo;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -33,7 +34,8 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @CrossOrigin(origins = { "http://localhost:4200" })
-@RequestMapping("/api")
+@RequestMapping("/v1/api")
+@Api(tags = "ServicesGenerated")
 public class ServicesGeneratedResources {
 
 	private final ServicesGeneratedService servicesGeneratedService;

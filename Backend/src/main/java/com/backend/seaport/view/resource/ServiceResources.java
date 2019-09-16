@@ -21,6 +21,7 @@ import com.backend.seaport.deal.service.ServiceService;
 import com.backend.seaport.model.Services;
 import com.backend.seaport.view.resource.vo.ServicesVo;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -33,7 +34,7 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @CrossOrigin(origins = { "http://localhost:4200" })
 @RequestMapping("/v1/api")
-
+@Api(tags = "Services")
 public class ServiceResources {
 
 	private final ServiceService serviceService;
