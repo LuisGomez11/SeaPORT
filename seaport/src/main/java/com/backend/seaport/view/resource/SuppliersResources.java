@@ -77,7 +77,7 @@ public class SuppliersResources {
 			suppliers.setNit(suppliersVo.getNit());
 			suppliers.setCanTra(suppliersVo.getCanTra());
 
-			return new ResponseEntity<>(this.suppliersService.updateSupplier(suppliers), HttpStatus.OK);
+			return new ResponseEntity<>(this.suppliersService.updateSupplier(suppliers), HttpStatus.OK); 
 
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
