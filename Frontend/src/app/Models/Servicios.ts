@@ -1,12 +1,12 @@
 export class Servicio{
 
-	constructor(id = 0, nombre = ''){
-		this.id = id;
-        this.nombre = nombre;
+	constructor(idServices = '', name = ''){
+		this.idServices = idServices;
+        this.name = name;
 	}
 	
-	id:number;
-	nombre:String;
+	idServices:string;
+	name:string;
 	
 
 } 

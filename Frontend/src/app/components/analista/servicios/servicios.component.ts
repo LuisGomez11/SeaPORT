@@ -45,7 +45,7 @@ export class ServiciosComponent implements OnInit {
   //   this.serviceService.selectedServicio = servicio
 
   //   this.formServicio = this.formBuilder.group({
-  //     nombre: ['', Validators.required],
+  //     : ['', Validators.required],
   //   });
   //   this.servicio = new Servicio();
   //   this.getServicios();
@@ -85,7 +85,7 @@ export class ServiciosComponent implements OnInit {
 
   //   let result = await swal.fire({
   //     title: 'Confirmación',
-  //     text: `¿Seguro que desea eliminar el servicio: ${servicio.nombre}?`,
+  //     text: `¿Seguro que desea eliminar el servicio: ${servicio.}?`,
   //     type: 'warning',
   //     showCancelButton: true,
   //     confirmButtonColor: '#3085d6',
@@ -98,7 +98,7 @@ export class ServiciosComponent implements OnInit {
 
   ngOnInit() {
     this.formServicio = this.formBuilder.group({
-      nombre: ['', Validators.required],
+      name: ['', Validators.required],
     });
     this.servicio = new Servicio();
     this.getServicios();
@@ -138,7 +138,7 @@ export class ServiciosComponent implements OnInit {
 
   editServicio(servicio: Servicio) {
     localStorage.removeItem('editServicioId');
-    localStorage.setItem('editServicioId', servicio.id.toString());
+    localStorage.setItem('editServicioId', servicio.idServices);
     this.router.navigate(['analista/servicios/edit']);
   }
 
@@ -146,7 +146,7 @@ export class ServiciosComponent implements OnInit {
 
     let result = await swal.fire({
       title: 'Confirmación',
-      text: `¿Seguro que desea eliminar el servicio: ${servicio.nombre}?`,
+      text: `¿Seguro que desea eliminar el servicio: ${servicio.name}?`,
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -157,7 +157,7 @@ export class ServiciosComponent implements OnInit {
 
 
     if (result.value) {
-      this.service.deleteServicio(servicio.id).subscribe(data => {
+      this.service.deleteServicio(parseInt(servicio.idServices)).subscribe(data => {
         this.listaServicios = this.listaServicios.filter(s => s !== servicio);
       });
       swal.fire('Eliminado!', 'Se ha eliminado el servicio.', 'success');
