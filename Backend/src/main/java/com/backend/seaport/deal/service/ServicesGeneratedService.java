@@ -66,8 +66,8 @@ public class ServicesGeneratedService {
 	 * 
 	 */
 	@Transactional
-	public ServicesGenerated findByIS(String idEntityG) {
-		return this.serviceGeneratedRepository.findByIdServices(idEntityG);	
+	public ServicesGenerated findByIS(String reference) {
+		return this.serviceGeneratedRepository.findByIdServices(reference);	
 	}
 	
 }

@@ -21,7 +21,7 @@ import lombok.Data;
 @Entity
 @Table(name = "servicios_generados")
 @EntityScan("ServicesGenerated")
-@NamedQuery(name = "ServicesGenerated.findByIdServices", query = "Select c from ServicesGenerated c where c.idService = ?1")
+@NamedQuery(name = "ServicesGenerated.findByIdServices", query = "Select c from ServicesGenerated c where c.reference = ?1")
 public class ServicesGenerated {
 
 	@Column(name = "id_entidadG")
