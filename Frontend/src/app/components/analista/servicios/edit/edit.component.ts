@@ -33,11 +33,11 @@ export class EditComponent implements OnInit {
     }
 
     this.editForm = this.formBuilder.group({
-      id: [],
-      nombre: ['', Validators.required]
+      idServices: ['', Validators.required],
+      name: ['', Validators.required]
     });
 
-    this.service.getServicio(+servicioId)
+    this.service.getServicio(servicioId)
       .subscribe(data => {
         this.editForm.setValue(data);
       });

@@ -25,7 +25,7 @@ export class ServicioService {
     );
   }
 
-  getServicio(id: number): Observable<Servicio> {
+  getServicio(id: String): Observable<Servicio> {
     return this.http.get<Servicio>(`${this.url}/${id}`);
   }
 
@@ -34,11 +34,11 @@ export class ServicioService {
   }
 
   updateServicio(servicio: Servicio): Observable<Servicio> {
-    return this.http.put<Servicio>(this.url, servicio, {headers: this.httpHeaders});
+    return this.http.put<Servicio>(this.url+`/update/${servicio.idServices}`, servicio, {headers: this.httpHeaders});
   }
 
-  deleteServicio(id: number): Observable<Servicio> {
-    return this.http.delete<Servicio>(`${this.url}/${id}`, {headers: this.httpHeaders});
+  deleteServicio(id: String): Observable<Servicio> {
+    return this.http.delete<Servicio>(this.url+`/delete/${id}`, {headers: this.httpHeaders});
   }
 
 }
