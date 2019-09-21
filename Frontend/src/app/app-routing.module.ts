@@ -13,8 +13,10 @@ import { RegistrarComponent } from './components/seleccionador/registrar/registr
 import { ConsultarComponent } from './components/seleccionador/consultar/consultar.component';
 import { EditComponent } from './components/analista/servicios/edit/edit.component';
 import { ErrorComponent } from './components/error/error/error.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
+	{path: 'login', component: LoginComponent},
 	{path: 'analista', component: InicioComponent},
 	{path: 'analista/inicio', component: InicioComponent},
 	{path: 'analista/servicios', component: ServiciosComponent},

@@ -22,6 +22,7 @@ import { NavAnalistaComponent } from "./components/analista/nav-analista/nav-ana
 import { NavSeleccionadorComponent } from './components/seleccionador/nav-seleccionador/nav-seleccionador.component';
 import { EditComponent } from './components/analista/servicios/edit/edit.component';
 import { ErrorComponent } from './components/error/error/error.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ErrorComponent } from './components/error/error/error.component';
     NavSeleccionadorComponent,
     NavAnalistaComponent,
     EditComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
