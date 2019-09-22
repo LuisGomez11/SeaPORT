@@ -12,8 +12,7 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  /*==================================================================
-  [ Focus input ]*/
+
   $('.input100').each(function(){
       $(this).on('blur', function(){
           if($(this).val().trim() != "") {
@@ -25,9 +24,6 @@ export class LoginComponent implements OnInit {
       })    
   });
 
-
-  /*==================================================================
-  [ Validate ]*/
   var input = $('.validate-input .input100');
 
   $('.validate-form').on('submit',function(){
@@ -74,9 +70,7 @@ export class LoginComponent implements OnInit {
 
       $(thisAlert).removeClass('alert-validate');
   }
-  
-  /*==================================================================
-  [ Show pass ]*/
+
   var showPass = 0;
   $('.btn-show-pass').on('click', function(){
       if(showPass == 0) {
