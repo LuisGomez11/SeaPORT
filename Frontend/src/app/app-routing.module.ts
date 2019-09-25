@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // COMPONENTES
-import { InicioComponent } from './components/analista/inicio/inicio.component';
+import { InicioAnaComponent } from './components/analista/inicio/inicio.component';
 import { ServiciosComponent } from './components/analista/servicios/servicios.component';
 import { EntidadComponent } from './components/analista/entidad/entidad.component';
 import { GeneradosComponent } from './components/analista/generados/generados.component';
@@ -14,11 +14,13 @@ import { ConsultarComponent } from './components/seleccionador/consultar/consult
 import { EditComponent } from './components/analista/servicios/edit/edit.component';
 import { ErrorComponent } from './components/error/error/error.component';
 import { LoginComponent } from './components/login/login.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 const routes: Routes = [
+	{path: '', component: InicioComponent},
 	{path: 'login', component: LoginComponent},
-	{path: 'analista', component: InicioComponent},
-	{path: 'analista/inicio', component: InicioComponent},
+	{path: 'analista', component: InicioAnaComponent},
+	{path: 'analista/inicio', component: InicioAnaComponent},
 	{path: 'analista/servicios', component: ServiciosComponent},
 	{path: 'analista/servicios/edit', component: EditComponent},
 	{path: 'analista/entidad', component: EntidadComponent},
